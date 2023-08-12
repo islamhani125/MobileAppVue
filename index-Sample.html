@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Shop</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <!-- Navbar Section Start -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Mobile-shop" height="35">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-Apple.html">Apple</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-Realme.html">Realme</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-Samsung.html">Samsung</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Footer">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- End of Navbar Section -->
+
+    <!-- #################################################################################### -->
+    <!-- #################################################################################### -->
+    <!-- Content Section Start -->
+    <div class="container mt-5 mb-3">
+        <div class="row">
+            <div class="col">
+                <h1 class="display-5 text-center m-5">New Arrivals</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- ######################################################  -->
+    <!-- Start App -->
+    <div id="myApp">
+        <div class="container">
+            <div class="row">
+                <div class="col-2 p-2 ms-auto border">
+                    <h4>
+                        <span class="fas fa-shopping-cart"></span>
+                        Cart : {{ cart }}
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img
+                        v-bind:src="image"
+                        class="border img-fluid"
+                        :alt="image_title"
+                        :title="image_title"
+                        
+                        >
+                </div>
+                <div class="col-md-8">
+                    <h2 class="display-5 text-danger" v-html="name"></h2>
+                    <!-- <h2 class="display-5 text-danger" v-text="name"></h2>
+                    <h2 class="display-5 text-danger">{{ name }}</h2> -->
+                    <h3>Specification</h3>
+                    <ul class="ms-3">
+                        <li v-for="(item,ind) in description" :key="ind">{{ind+1}}-{{item}}</li>
+                    </ul>
+                    <div class="p-3 d-flex">
+                        <div 
+                        v-for="x in colors" 
+                        :key="ind" 
+                        :style="{backgroundColor:x.color, color:x.txt }"
+                        class="border p-2"
+                        >
+                           <img class="img" :src="x.pic" alt="" @click="imgClick(x.pic)">
+                        </div>
+                    </div>
+
+                    <div class="p-1">
+
+                        <div v-if="stock >= 5" class="fw-bold text-success">Stock: {{stock}}</div>
+                        <div v-else-if="stock > 0" class="fw-bold text-warning">Stock: {{stock}} Almost Sold Out</div>
+                        <div v-else class="fw-bold text-danger">Out of Stock</div>
+
+                        <div class="d-block p-3 rounded bg-light text-center">
+                            Price: {{price}} egp
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-success w-100">
+                        <span class="fas fa-cart-plus"></span>
+                        Add to Cart
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    <!-- <div class="container">
+        <h2>test test</h2>
+        <ul>
+            <li v-for="(val,k) in mobile">
+                {{ k.toUpperCase() + ": "  }}
+                
+                <span v-if="typeof(val) == 'string'">{{ val.toUpperCase() }}</span>
+                <span v-else>{{ val }}</span>
+            </li>
+        </ul>
+    </div> -->
+
+</div>
+    <!-- End  App -->
+    <!-- ######################################################  -->
+
+
+    <!-- End of Content Section -->
+    <!-- #################################################################################### -->
+    <!-- #################################################################################### -->
+
+    <!-- Footer Section Start -->
+    <div class="bg-dark text-white-50 mt-5" id="Footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mt-5 my-md-5">
+                    <img src="images/logo-light.png" alt="" height="40">
+                    <p>Mobileshop Is the Biggest Telecommunication Retail chain in Egypt since 2006.</p>
+                    <p> It is offering an extremely wide range of the best telecommunications & Accessories products,
+                        having expert and dedicated staff that are always ready to be of service to you. </p>
+                </div>
+                <div class="col-md-2 my-2 my-md-5">
+                    <h5 class="text-warning">Brands</h5>
+                    <ul class="list-unstyled px-3">
+                        <li><a class="text-info text-decoration-none" href="#">Appel</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Samsung</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Realme</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Huawei</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2  my-3 my-md-5">
+                    <h5 class="text-warning">Quick Links</h5>
+                    <ul class="list-unstyled px-3">
+                        <li><a class="text-info text-decoration-none" href="#">About us</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Installment Methods</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Terms & Conditions</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 my-3 my-md-5 ps-4">
+                    <h5 class="text-warning">e-Newsletter</h5>
+                    <form action="">
+                        <div class="input-group">
+                            <input type="email" name="email" class="form-control rounded-0"
+                                placeholder="Enter you email">
+                            <button class="btn btn-danger rounded-0">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row g-0 pb-3 text-center">
+                <div class="col">
+                    <h6>Copyrights &copy; 2022 Mobile Shop</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Footer Section -->
+
+
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/vue.global.js"></script>
+    <script>
+        var app = Vue.createApp({
+            data() {
+                return {
+                    id: "1003",
+                    name: "Samsung Galaxy <u> A21s SM-A217FZBGEGY</u> Dual SIM Mobile - 6.5 Inch, 64 GB, 4 GB RAM, 4G LTE",
+                    description: ["Camera Resolution: 48 megapixels", "Ram: 4 gigabytes",
+                        "Networking topology: 4g l", "DUAL SIM"
+                    ],
+                    cart: 0,
+                    stock: 5,
+                    instok: true,
+                    price: 3098,
+                    image_title: "Samsung Galaxy A21s",
+                    image: "images/samsung_a21s.jpg",
+                    colors: [{
+                            txt:"yellow",
+                            color: "Black",
+                            pic: "images/samsung_a21s_black.jpg"
+                        },
+                        {
+                            txt:"yellow",
+                            color: "Blue",
+                            pic: "images/samsung_a21s_blue.jpg"
+                        },
+                        {
+                            txt:"blue",
+                            color: "White",
+                            pic: "images/samsung_a21s_white.jpg"
+                        },
+                        {
+                            txt:"white",
+                            color: "red",
+                            pic: "images/samsung_a21s.jpg"
+                        }
+                    ],
+                    mobile: {
+                        color:"blue",
+                        price:600,
+                        des: "Nokia"
+                    }
+
+                }
+            },
+            methods: {
+                imgClick(src) {
+                // alert(this.image);
+                   this.image = src;
+                }
+
+            },
+        });
+        app.mount("#myApp");
+    </script>
+
+</body>
+
+</html>

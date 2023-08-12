@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Shop</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <!-- Navbar Section Start -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Mobile-shop" height="35">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-Apple.html">Apple</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-Realme.html">Realme</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-Samsung.html">Samsung</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Footer">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- End of Navbar Section -->
+
+    <!-- Slider Section Start  -->
+    <div class="container-fluid g-0">
+        <div id="slider01" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/banner01.jpg" alt="Special Offers" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/banner02.jpg" alt="Special Offers" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/banner03.jpg" alt="Special Offers" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/banner04.jpg" alt="Special Offers" class="d-block w-100">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#slider01" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#slider01" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- End of Slider Section  -->
+
+    <!-- #################################################################################### -->
+    <!-- #################################################################################### -->
+    <!-- Content Section Start -->
+    <div class="container mt-5 mb-3">
+        <div class="row">
+            <div class="col">
+                <h1 class="display-5 text-center">New Arrivals</h1>
+            </div>
+        </div>
+    </div>
+<div id="myApp">
+    <div class="container">
+        <!-- Filter & Products Section -->
+        <!-- ######################################################  -->        
+        <div class="row">
+            <div class="col-lg-2 border rounded p-3" style="background-color:#EDEDED">
+                <h4 class="text-danger fw-bold">Filter Results</h4>
+                <div class="col ps-1">
+                    <h5>Filter by Type</h5>
+                    <div class="form-check" v-for="type in typeList">
+                        <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" 
+                                :value="type" 
+                                v-model="typeFilter"
+                            >
+                                {{ type }}</label>
+                    </div>
+    
+                </div>
+                <div class="col mt-5 ps-1">
+                    <h5>Filter by Price</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="price1" class="form-label">From</label>
+                                <input type="text" id="price1" class="form-control" v-model.number.lazy="priceFrom">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="price2" class="form-label">To</label>
+                                <input type="text" id="price2" class="form-control" v-model.number.lazy="priceTo">
+                        </div>
+                    </div>                
+                </div>
+            </div>
+
+        <div class="col-lg-10">
+            <div class="row">
+            <div class="col-md-6 col-xl-4 p-2" v-for="item in products"  v-if="filter(item.type,item.price)">
+                <div class="card">
+                    <img :src="item.image" class="card-img-top p-3" alt="mobile">
+                    <div class="card-body">
+                        <h5 class="card-title text-danger">{{item.name}}</h5>
+                        <ul class="card-text">
+                            <li v-for="spec in item.description">{{spec}}</li>
+                        </ul>
+                        <div class="d-flex p-1">                            
+                            <div class="w-50 p-1">Stock: {{ item.stock }}</div>
+                            <div class="w-50 p-1 rounded bg-info text-center">
+                                Price: {{ item.price }} egp
+                            </div>
+                        </div>
+                        <a href="index-Sample.html" class="btn btn-danger w-100">Show Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+            
+        </div>
+    </div>
+</div>    
+
+
+
+
+    <!-- End of Content Section -->
+    <!-- #################################################################################### -->
+    <!-- #################################################################################### -->
+
+    <!-- Footer Section Start -->
+    <div class="bg-dark text-white-50 mt-5" id="Footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mt-5 my-md-5">
+                    <img src="images/logo-light.png" alt="" height="40">
+                    <p>Mobileshop Is the Biggest Telecommunication Retail chain in Egypt since 2006.</p>
+                    <p> It is offering an extremely wide range of the best telecommunications & Accessories products,
+                        having expert and dedicated staff that are always ready to be of service to you. </p>
+                </div>
+                <div class="col-md-2 my-2 my-md-5">
+                    <h5 class="text-warning">Brands</h5>
+                    <ul class="list-unstyled px-3">
+                        <li><a class="text-info text-decoration-none" href="#">Appel</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Samsung</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Realme</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Huawei</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2  my-3 my-md-5">
+                    <h5 class="text-warning">Quick Links</h5>
+                    <ul class="list-unstyled px-3">
+                        <li><a class="text-info text-decoration-none" href="#">About us</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Installment Methods</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Terms & Conditions</a></li>
+                        <li><a class="text-info text-decoration-none" href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 my-3 my-md-5 ps-4">
+                    <h5 class="text-warning">e-Newsletter</h5>
+                    <form action="">
+                        <div class="input-group">
+                            <input type="email" name="email" class="form-control rounded-0"
+                                placeholder="Enter you email">
+                            <button class="btn btn-danger rounded-0">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row g-0 pb-3 text-center">
+                <div class="col">
+                    <h6>Copyrights &copy; 2022 Mobile Shop</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Footer Section -->
+
+
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="data-Samsung.js"></script>
+
+    <script>        
+        var vm = new Vue({
+            el:"#myApp",
+            data: {
+                products: mobiles,
+                typeList:[],
+                typeFilter: [],
+                priceFrom:null,
+                priceTo:null,                
+            },
+            methods: {
+                filter: function(t,p) {
+                    if (
+                        (p >= this.priceFrom && p <= this.priceTo) 
+                            && 
+                        (this.typeFilter.length == 0 || this.typeFilter.includes(t))
+                        ) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            },
+            mounted () {                
+                let min = this.products[0].price;
+                let max = this.products[0].price;
+
+                for(item of this.products)
+                {
+                    if (item.price < min) { min = item.price; }
+                    if (item.price > max) { max = item.price; }
+
+                    if (!this.typeList.includes(item.type)) {
+                        this.typeList.push(item.type);
+                    }
+                }
+
+                this.priceFrom = min;
+                this.priceTo = max;
+            },
+
+        }); // end of vue app
+
+
+    </script>
+</body>
+
+</html>

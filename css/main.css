@@ -1,0 +1,119 @@
+/* Reset Setting */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+button.btn-square {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #078811;
+    color: #fff;
+    border: 1px solid darkgreen;
+    font-size: 1.4em;
+    
+}
+.top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;    
+    margin: 0 auto;
+    width: 80vw;    
+    border: 1px solid #618b61;
+    background-color:#a7c9a7;
+}
+.cart {    
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;    
+    flex-grow: 1;
+}
+.maxPrice {    
+    padding: 10px;
+    margin: 0 auto;
+    text-align: left;    
+    font-weight: bold;    
+    flex-grow: 4;
+}
+#container {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;    
+}
+
+#header {
+    padding: 20px;
+    height: 120px;
+    background: linear-gradient(#6cb47a, #e0ffe4);
+    text-align: center;
+}
+
+#myApp {
+    padding: 10px;
+/*    height: 1000px;*/
+    background: #ffffff;    
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.product {
+    margin: 0px auto;
+    padding: 10px;
+    width: 80vw;
+    border: 1px solid #AAA;
+    display: flex;
+    flex-direction: row;
+}
+
+#image-section {
+    padding: 5px;    
+    background: #FFF;
+    width: 20%;
+    min-height: 70px;
+    text-align: center;
+}
+#image-section img {
+    /* width: 70%; */
+    height: 200px;
+    padding:5px;
+}
+#desc-section {
+    padding: 5px;    
+    background: #f0fff0;
+    width: 70%;
+}
+#desc-section h2 {
+    padding: 20px 20px 0;
+    font-size:1.2em;
+    color: #009176;
+}
+#desc-section ul {
+    margin-left: 40px;
+    padding: 20px;
+}
+#desc-section hr {
+    width: 50%;
+    border-top: 2px solid #22af22;   
+}
+#desc-section .colors li {
+    padding: 10px;
+    border: 1px solid #363636;   
+    display: inline-block;
+    cursor: pointer;
+}
+
+#price-section {
+    padding: 20px;    
+    background: #d3fad3;
+    width: 15%;
+    text-align: center;            
+}
